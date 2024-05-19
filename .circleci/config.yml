@@ -1,8 +1,7 @@
 # This config was automatically generated from your source code
 # Stacks detected: cicd:github-actions:.github/workflows,deps:node:udagram-frontend
 version: 2.1
-orbs:
-  node: circleci/node@5
+
 jobs:
   buildjob:
     docker:
@@ -14,6 +13,11 @@ jobs:
       - image: docker/compose:1.29.1
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.7
+      - run:
+          name: Verify Docker Compose version
+          command: docker-compose --version
       - run:
           name: Verify container
           command: |
