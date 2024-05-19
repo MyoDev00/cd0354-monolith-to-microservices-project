@@ -1,0 +1,37 @@
+# This config was automatically generated from your source code
+# Stacks detected: cicd:github-actions:.github/workflows,deps:node:udagram-frontend
+version: 2.1
+orbs:
+  node: circleci/node@5
+jobs:
+  buildjob:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - checkout
+  deployjob:
+    docker:
+      - image: docker/compose:1.29.1
+    steps:
+      - checkout
+      - run:
+          name: Verify container
+          command: |
+            docker-compose up -d
+      - run:
+          name: Docker Build and Push
+          command: |
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
+            docker-compose -f docker-compose-build.yaml build --parallel
+
+            docker push myonyein11/udagram-api-user:$USER_API_TAG
+            docker push myonyein11/udagram-api-feed:$FEED_API_TAG
+            docker push myonyein11/udagram-frontend:$FRONTEND_TAG
+            docker push myonyein11/udagram-reverseproxy:$PROXY_TAG
+workflows:
+  build-and-deploy:
+    jobs:
+      - buildjob
+      - deployjob:
+          requires:
+            - buildjob
