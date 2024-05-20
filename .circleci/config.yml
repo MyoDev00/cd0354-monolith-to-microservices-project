@@ -27,12 +27,12 @@ jobs:
             docker tag udagram-api-user myonyein11/udagram-api-user:v1
             docker tag udagram-api-feed myonyein11/udagram-api-feed:v1
             docker tag udagram-frontend myonyein11/udagram-frontend:v1
-            docker tag udagram-reverseproxy myonyein11/udagram-reverseproxy:v1
+            docker tag reverseproxy myonyein11/reverseproxy:v1
 
             docker push myonyein11/udagram-api-user:v1
             docker push myonyein11/udagram-api-feed:v1
             docker push myonyein11/udagram-frontend:v1
-            docker push myonyein11/udagram-reverseproxy:v1
+            docker push myonyein11/reverseproxy:v1
 workflows:
   build-and-deploy:
     jobs:
