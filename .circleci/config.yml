@@ -14,7 +14,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: latest
+          version: 26.1.3
       - run:
           name: Verify Docker Compose version
           command: docker-compose --version
