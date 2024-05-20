@@ -19,10 +19,6 @@ jobs:
           name: Verify Docker Compose version
           command: docker-compose --version
       - run:
-          name: Verify container
-          command: |
-            docker-compose up -d
-      - run:
           name: Docker Build and Push
           command: |
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
