@@ -13,7 +13,7 @@ jobs:
       - image: docker/compose:1.29.1
     steps:
       - checkout
-      - setup_remote_docker:
+      - setup_remote_docker
       - run:
           name: Verify Docker Compose version
           command: docker-compose --version
