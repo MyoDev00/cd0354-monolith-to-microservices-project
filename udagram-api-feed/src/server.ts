@@ -45,6 +45,10 @@ import { V0_FEED_MODELS } from "./controllers/v0/model.index";
     res.send("/api/v0/");
   });
 
+  app.get("/healthcheck", async (req, res) => {
+    res.send("Feed Healthy");
+  });
+
   // Start the Server
   app.listen(port, () => {
     console.log(`server running ${config.url}`);
