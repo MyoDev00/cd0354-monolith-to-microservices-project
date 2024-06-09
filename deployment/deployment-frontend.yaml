@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: myonyein11/udagram-frontend:v4
+          image: myonyein11/udagram-frontend:v5
           imagePullPolicy: Always
           resources:
             limits:
