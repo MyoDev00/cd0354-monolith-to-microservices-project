@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reverseproxy
-          image: myonyein11/reverseproxy:v2
+          image: myonyein11/reverseproxy:v4
           imagePullPolicy: Always
           resources:
             limits:
